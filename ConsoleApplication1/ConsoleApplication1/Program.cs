@@ -11,7 +11,7 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World from Git HUB master");
-
+Console.WriteLine("should have french as well ");
             Console.WriteLine("I am german now");
         }
     }
