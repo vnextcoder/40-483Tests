@@ -13,6 +13,8 @@ namespace ConsoleApplication1
             Console.WriteLine("Hello World from Git HUB master");
 Console.WriteLine("should have french as well ");
             Console.WriteLine("I am german now");
+            Console.WriteLine("Lots of TypeCode written");
+
         }
     }
 }
