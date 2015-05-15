@@ -33,6 +33,7 @@ namespace Parallelinvoke
             else
             {
                 accumulator -= data;
+                //Accumulator negative
             }
         }
 
