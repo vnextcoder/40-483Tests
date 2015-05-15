@@ -1,6 +1,0 @@
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Tasksdemo\bin\Debug\Tasksdemo.exe.config
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Tasksdemo\bin\Debug\Tasksdemo.exe
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Tasksdemo\bin\Debug\Tasksdemo.pdb
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Tasksdemo\obj\Debug\Tasksdemo.csprojResolveAssemblyReference.cache
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Tasksdemo\obj\Debug\Tasksdemo.exe
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Tasksdemo\obj\Debug\Tasksdemo.pdb

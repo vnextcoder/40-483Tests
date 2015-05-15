@@ -1,5 +1,0 @@
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Parallelinvoke\bin\Debug\Parallelinvoke.exe.config
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Parallelinvoke\bin\Debug\Parallelinvoke.exe
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Parallelinvoke\bin\Debug\Parallelinvoke.pdb
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Parallelinvoke\obj\Debug\Parallelinvoke.exe
-C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\Parallelinvoke\obj\Debug\Parallelinvoke.pdb
