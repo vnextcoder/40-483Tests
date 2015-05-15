@@ -1,0 +1,8 @@
+C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\TimerTester\bin\Debug\TimerTester.exe.config
+C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\TimerTester\bin\Debug\TimerTester.exe
+C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\TimerTester\bin\Debug\TimerTester.pdb
+C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\TimerTester\obj\Debug\TimerTester.csprojResolveAssemblyReference.cache
+C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\TimerTester\obj\Debug\TimerTester.exe
+C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\TimerTester\obj\Debug\TimerTester.pdb
+C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\TimerTester\bin\Debug\NLog.dll
+C:\Users\501484820\documents\visual studio 2013\Projects\WpfApplication1\TimerTester\bin\Debug\NLog.xml
