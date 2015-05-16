@@ -16,5 +16,11 @@ namespace LinqtoTweettester
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LinqToTwitter.Account ac = new LinqToTwitter.Account();
+            
+        }
     }
 }
