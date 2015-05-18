@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasksdemo", "Tasksdemo\Task
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cancellationtokendemo", "Cancellationtokendemo\Cancellationtokendemo.csproj", "{E24EF973-E4BE-4F17-90F0-4DF6691BE680}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksREsultDemo", "TasksREsultDemo\TasksREsultDemo.csproj", "{23D9E4F0-C199-4F4E-8C9B-9FE155B4502D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E24EF973-E4BE-4F17-90F0-4DF6691BE680}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E24EF973-E4BE-4F17-90F0-4DF6691BE680}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E24EF973-E4BE-4F17-90F0-4DF6691BE680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D9E4F0-C199-4F4E-8C9B-9FE155B4502D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D9E4F0-C199-4F4E-8C9B-9FE155B4502D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D9E4F0-C199-4F4E-8C9B-9FE155B4502D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D9E4F0-C199-4F4E-8C9B-9FE155B4502D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
