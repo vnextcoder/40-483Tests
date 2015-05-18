@@ -35,6 +35,7 @@
                 </Grid>
                 <Image x:Name="graphImage" Grid.Column="1" Stretch="Fill" />
             </Grid>
+            <TextBlock x:Name="messages" Grid.Row="4" FontSize="18" HorizontalAlignment="Left"/>
         </Grid>
     </Grid>
 </Page>
