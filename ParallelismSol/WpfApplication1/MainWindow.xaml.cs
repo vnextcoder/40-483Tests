@@ -127,7 +127,7 @@ namespace WpfApplication1
 
         private void DoWorkall()
         {
-                Parallel.For(1, 400, j => worker(j),);
+                Parallel.For(1, 400, j => worker(j));
             
         }
          private void worker(int i)

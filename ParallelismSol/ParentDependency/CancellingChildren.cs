@@ -11,7 +11,7 @@ namespace ParentDependency
     class CancellingChildren
     {
 
-        public static void Main()
+        public static void main2()
         {
             var tokenSource = new CancellationTokenSource();
             var token = tokenSource.Token;
