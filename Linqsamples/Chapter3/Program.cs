@@ -23,12 +23,182 @@ namespace Chapter3
             //OrderByEx();
             //ThenByEx();
 
-            ReverseEx();
+            //ReverseEx();
 
-            GroupbyEx();
+            //GroupbyEx();
+
+            //ConcatUnionEx();
+            //IntersectEx();
+            //ExceptEx();
+        //    OfTypeDemo();
+
+            //OfTypestrongtype();
+
+            CastType();
+
+            ToDictionaryDemo();
             Console.ReadKey();
         }
 
+        private static void ToDictionaryDemo()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void CastType()
+        {
+            Console.WriteLine(" CastType demo"); 
+
+            IEnumerable<object> input = new object[] { "apple", "Sugar", "Flour" };
+            
+            
+            
+            IEnumerable<string> query = input.Cast<string>();
+
+            Console.WriteLine(" CastType demo fluent syntax"); 
+            foreach (var item in query)
+            {
+                Console.WriteLine("item is " + item);
+            }
+
+            IEnumerable<string> query2 = from string i in input
+                                         select i.ToUpper().Trim();
+
+            Console.WriteLine(" CastType demo query syntax ");
+            foreach (var item in query2)
+            {
+                Console.WriteLine("item is " + item);
+            }
+
+
+
+        }
+        //class Ingredient { public string Name { get; set; } }
+        class DryIngredient : Ingredient { public int Grams { get; set; } }
+        class WetIngredient : Ingredient { public int Millilitres { get; set; } }
+
+        private static void OfTypestrongtype()
+        {
+
+            IEnumerable<Ingredient> input = new Ingredient[] 
+            { 
+                new DryIngredient { Name = "Flour" }, 
+                new WetIngredient { Name = "Milk" },
+                new WetIngredient { Name = "Water" } 
+            };
+
+
+            Console.WriteLine("Dry Ingredients "); 
+            var Dryguys = input.OfType<DryIngredient>();
+
+
+            foreach (var item in Dryguys)
+            {
+                Console.WriteLine("  -- " + item.Name);
+            }
+
+            Console.WriteLine("Wet Ingredients ");
+            var Wetstuff = input.OfType<WetIngredient>();
+
+
+            foreach (var item in Wetstuff)
+            {
+                Console.WriteLine("  -- " + item.Name);
+            }
+
+        
+        }
+
+
+        private static void OfTypeDemo()
+        {
+            IEnumerable<object> input = new object [] {
+                "apple",33, "sugar", 44, "55" , '\x65', new DateTime()
+            };
+
+            Console.WriteLine("off Type Demo ");
+            IEnumerable<string> query = input.OfType<string>();
+            foreach (var item in query)
+            {
+                Console.WriteLine(item);
+            }
+
+        
+        }
+        private static void ExceptEx()
+        {
+            string[] applePie = { "Apple", "Sugar", "Pastry", "Cinnamon" };
+            string[] cherryPie = { "Cherry", "Sugar", "Pastry", "Kirsch" };
+            IEnumerable<string> query = applePie.Except(cherryPie);
+
+
+            Console.WriteLine(" apple Except cherry ");
+            foreach (string item in query)
+            {
+                Console.WriteLine(item);
+            }
+            
+
+
+        }
+
+        private static void IntersectEx()
+        {
+            string[] applePie = { "Apple", "Sugar", "Pastry", "Cinnamon" };
+            string[] cherryPie = { "Cherry", "Sugar", "Pastry", "Kirsch" };
+            IEnumerable<string> query = applePie.Intersect(cherryPie);
+
+
+            Console.WriteLine(" Intersection ");
+            foreach (string item in query)
+            {
+                Console.WriteLine(item);
+            }
+            int[] first = { 1, 2, 3, 4 };
+            int[] second = { 4, 5, 6 };
+
+            int[] third = first.Intersect(second).ToArray();
+
+            foreach (var item in third)
+            {
+                Console.WriteLine(item);
+            }
+
+
+        }
+
+        private static void ConcatUnionEx()
+        {
+            string[] applePie = { "Apple", "Sugar", "Pastry", "Cinnamon" };
+            string[] cherryPie = { "Cherry", "Sugar", "Pastry", "Kirsch" };
+            IEnumerable<string> query = applePie.Concat(cherryPie);
+
+            IEnumerable<string> query2 = applePie.Union(cherryPie);
+
+            Console.WriteLine(" Concatenated ");
+            foreach (string item in query)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine(" Union ");
+            foreach (string item in query2)
+            {
+                Console.WriteLine(item);
+            }
+            int[] first = { 1, 2, 3 };
+            int[] second = { 4,5,6};
+
+            int[] third = first.Concat(second).ToArray();
+
+            foreach (var item in third)
+            {
+                Console.WriteLine(item);
+            }
+
+
+        }
+
+        
         private static void GroupbyEx()
         {
             Ingredient[] ingredients = { new Ingredient { Name = "Sugar", Calories = 500 },
