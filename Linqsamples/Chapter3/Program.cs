@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using static System.Console;
 namespace Chapter3
 {
     class Program
@@ -34,7 +34,7 @@ namespace Chapter3
 
             //OfTypestrongtype();
 
-            CastType();
+            //CastType();
 
             ToDictionaryDemo();
             Console.ReadKey();
@@ -42,7 +42,30 @@ namespace Chapter3
 
         private static void ToDictionaryDemo()
         {
-            throw new NotImplementedException();
+            IEnumerable<Recipe> recipes = new[] { new Recipe { Id = 1, Name = "Apple Pie", Rating = 5 },
+                new Recipe { Id = 2, Name = "Cherry Pie", Rating = 2 }, 
+                new Recipe { Id = 3, Name = "Beef Pie", Rating = 3 },
+            new Recipe { Id = 3, Name = "Cherry Pie ", Rating = 3 } };
+
+            Dictionary<int, Recipe> dict = recipes.ToDictionary(x => x.Id);
+
+
+            Dictionary<string, Recipe> dict2 = recipes.ToDictionary(x => x.Name);
+            Console.WriteLine(" int Dict ");
+            foreach (KeyValuePair<int,Recipe>  item in dict)
+            {
+
+                Console.WriteLine("key =  {0}, Recipe = {1}", item.Key, item.Value.Name);
+            }
+
+            Console.WriteLine(" string Dict " );
+             
+            foreach (KeyValuePair<string, Recipe> item in dict2)
+            {
+
+                Console.WriteLine("key =  {0}, Recipe = {1}", item.Key, item.Value.Name);
+            }
+
         }
 
         private static void CastType()
