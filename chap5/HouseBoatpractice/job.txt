@@ -1,0 +1,14 @@
+Job Description For IJB #01430
+
+•	Strong communication skills with both internal team members and external business stakeholders \r
+•	Practical knowledge & good understanding of cross technology and functional domains, programming concepts and logical approach for problem solving\r
+
+
+•	Experience in web application Architecture and Development with hands on expertise in delivering solutions based on/customizing Java 6.0 and above, and Java EE framework using development tools like RAD/Eclipse. \r
+
+•	Experience on web development technologies including Java, Struts, JSP, Servlets, JSF, JDBC, EJB, JMS, JavaScript, JQuery, HTML5, AJAX, XML and CSS. • Experience in architecting and delivering Mid to Large sale Enterprise Applications on WebSphere Application server.
+•	Exposure to Web Technologies like Node.js, AngularJS and ability to make recommendations suitable for the current and future needs. 
+•	Solid Knowledge of OOPS concepts, OOAD, with Java EE Framework and Web Services. \r
+•	Experience in RDBMS like Oracle & database programming skills including creating stored procedures, views using PL/SQL. • Knowledge of Design Patterns, UML, TDD/BDD and best software development practices • Knowledge and experience with Hibernate, Spring, Jasper, Web Services. • Experience with agile development methodologies including Kanban and Scrum \r
+•	Experience with source control management systems and continuous integration/deployment environments like TFS, SVN etc.
+
