@@ -8,6 +8,11 @@ namespace RayGunTest {
     public class Calculator {
         public int Add (int x, int y) => x + y;
     }
+//https://github.com/xbehave/xbehave.net/wiki/Assertions
+//https://dev.to/hatsrumandcode/net-core-2-why-xunit-and-not-nunit-or-mstest--aei
+//http://docs.behat.org/en/v2.5/guides/1.gherkin.html
+//https://dotnetthoughts.net/using-fluentassertions-in-dotnet-core-unittests/
+
 
     public class CalculatorFeature {
         [Scenario]
