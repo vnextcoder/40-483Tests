@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assemblies timestamp="05/28/2018 15:15:57">
+  <assembly name="XUnitTest.dll" environment="64-bit .NET Standard [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.3.1.3858" run-date="2018-05-28" run-time="15:15:57" total="7" passed="6" failed="1" skipped="0" time="0.278" errors="0">
+    <errors />
+    <collection total="2" passed="2" failed="0" skipped="0" name="Test collection for RayGunTest.Class1" time="0.011">
+      <test name="RayGunTest.Class1.TryMakingHeapsOfGuns" type="RayGunTest.Class1" method="TryMakingHeapsOfGuns" time="0.0102035" result="Pass" />
+      <test name="RayGunTest.Class1.TryShootBug" type="RayGunTest.Class1" method="TryShootBug" time="0.0007509" result="Pass" />
+    </collection>
+    <collection total="5" passed="4" failed="1" skipped="0" name="Test collection for RayGunTest.CalculatorFeature" time="0.016">
+      <test name="RayGunTest.CalculatorFeature.Addition() [01] Given the number 1" type="RayGunTest.CalculatorFeature" method="Addition" time="0.0019398" result="Pass" />
+      <test name="RayGunTest.CalculatorFeature.Addition() [02] And the number 2" type="RayGunTest.CalculatorFeature" method="Addition" time="0.0000487" result="Pass" />
+      <test name="RayGunTest.CalculatorFeature.Addition() [03] And a calculator" type="RayGunTest.CalculatorFeature" method="Addition" time="0.0000946" result="Pass" />
+      <test name="RayGunTest.CalculatorFeature.Addition() [04] When I add the numbers together" type="RayGunTest.CalculatorFeature" method="Addition" time="0.0000988" result="Pass" />
+      <test name="RayGunTest.CalculatorFeature.Addition() [05] Then the answer is 3" type="RayGunTest.CalculatorFeature" method="Addition" time="0.006477" result="Fail">
+        <failure exception-type="Xunit.Sdk.EqualException">
+          <message><![CDATA[Assert.Equal() Failure\r\nExpected: 4\r\nActual:   3]]></message>
+          <stack-trace><![CDATA[   at RayGunTest.CalculatorFeature.<>c__DisplayClass0_0.<Addition>b__4() in C:\Users\avinash.barnwal\Downloads\40-483Tests\Testing\RayGunTest\XUnitTest\Class2.cs:line 26
+   at Xbehave.StringExtensions.<>c__DisplayClass0_0.<x>b__0(IStepContext c) in C:\projects\xbehave-net\src\Xbehave.Core\StringExtensions.cs:line 36
+   at Xbehave.Execution.Invoker.<>c__DisplayClass0_1.<<Invoke>b__1>d.MoveNext() in C:\projects\xbehave-net\src\Xbehave.Execution\Invoker.cs:line 28
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)]]></stack-trace>
+        </failure>
+      </test>
+    </collection>
+  </assembly>
+</assemblies>

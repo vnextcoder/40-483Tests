@@ -12,9 +12,10 @@ namespace UtilityLibraries {
         public static bool StartsWithLower (this string s) {
             if (String.IsNullOrWhiteSpace (s))
                 return false;
-
+          
             return Char.IsLower (s[0]);
         }
+
 
         public static bool HasEmbeddedSpaces (this string s) {
             if (String.IsNullOrWhiteSpace (s))
