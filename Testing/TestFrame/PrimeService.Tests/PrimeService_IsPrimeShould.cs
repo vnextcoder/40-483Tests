@@ -37,7 +37,7 @@ namespace PrimeService.Tests {
         [InlineData (5)]
         [InlineData (7)]
         [Trait ("Category", "bvt")]
-
+        [Trait("Category", "SkipWhenLiveUnitTesting")]
         [Trait ("Priority", "3")]
         public void ReturnTrueGivenPrimesLessThan10 (int value) {
             var result = _primeService.IsPrime (value);

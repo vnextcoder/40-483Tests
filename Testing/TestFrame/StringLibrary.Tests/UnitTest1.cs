@@ -84,6 +84,7 @@ namespace StringLibraryTests {
         }
 
         [TestMethod]
+        [TestCategory("SkipWhenLiveUnitTesting")]
         public void TestHasEmbeddedSpaces () {
             // Tests that we expect to return true.
             string[] phrases = {
