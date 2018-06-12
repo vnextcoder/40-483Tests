@@ -1,19 +1,24 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using mysecureapp.Areas.Identity.Data;
 
-namespace mysecureapp.Data
+namespace mysecureapp.Areas.Identity.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    
+    public class mysecureappIdentityDbContext : IdentityDbContext<mySecureAppUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public mysecureappIdentityDbContext(DbContextOptions<mysecureappIdentityDbContext> options)
             : base(options)
         {
+            
         }
-         protected override void OnModelCreating(ModelBuilder builder)
+
+        protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.
