@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MSOPSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="MSOPSModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="MSOPSModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Orders" EntityType="MSOPSModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="MSOPSModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Regions" EntityType="MSOPSModel.Store.Regions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderDetails" EntityType="MSOPSModel.Store.OrderDetails" store:Type="Views" store:Schema="dbo" store:Name="OrderDetails">
+            <DefiningQuery>SELECT 
+      [OrderDetails].[orderid] AS [orderid], 
+      [OrderDetails].[OrderDate] AS [OrderDate], 
+      [OrderDetails].[CustomerID] AS [CustomerID], 
+      [OrderDetails].[CompanyName] AS [CompanyName], 
+      [OrderDetails].[ProductID] AS [ProductID], 
+      [OrderDetails].[ProductName] AS [ProductName], 
+      [OrderDetails].[UnitPrice] AS [UnitPrice], 
+      [OrderDetails].[Quantity] AS [Quantity], 
+      [OrderDetails].[Amt] AS [Amt]
+      FROM [dbo].[OrderDetails] AS [OrderDetails]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="CID_Frk" Association="MSOPSModel.Store.CID_Frk">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="PID_FrK" Association="MSOPSModel.Store.PID_FrK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="char" Nullable="false" MaxLength="5" />
+          <Property Name="CompanyName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ContactPerson" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="WebSiteURL" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="ShippingDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="ProductID" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="CustomerID" Type="char" Nullable="false" MaxLength="5" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="money" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="ProductName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="UnitPrice" Type="smallmoney" Nullable="false" />
+          <Property Name="LincensesInHand" Type="int" Nullable="false" />
+          <Property Name="ReorderLevel" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Name="RegionID" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="RegionDesc" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'MSOPS.dbo.OrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="orderid" />
+            <PropertyRef Name="OrderDate" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ProductName" />
+            <PropertyRef Name="UnitPrice" />
+            <PropertyRef Name="Quantity" />
+          </Key>
+          <Property Name="orderid" Type="bigint" Nullable="false" />
+          <Property Name="OrderDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="CustomerID" Type="char" Nullable="false" MaxLength="5" />
+          <Property Name="CompanyName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductID" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="ProductName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="UnitPrice" Type="smallmoney" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Amt" Type="money" />
+        </EntityType>
+        <Association Name="CID_Frk">
+          <End Role="Customers" Type="MSOPSModel.Store.Customers" Multiplicity="1" />
+          <End Role="Orders" Type="MSOPSModel.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PID_FrK">
+          <End Role="Products" Type="MSOPSModel.Store.Products" Multiplicity="1" />
+          <End Role="Orders" Type="MSOPSModel.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetAmount" ReturnType="money" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductID" Type="char" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+        </Function>
+        <Function Name="USP_AddCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CusotmerID" Type="char" Mode="In" />
+          <Parameter Name="CompanyName" Type="varchar" Mode="In" />
+          <Parameter Name="ContactPerson" Type="varchar" Mode="In" />
+          <Parameter Name="Phone" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="WebSiteURL" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_OrderDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_OrderDetails2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_OrderDetailsMulti" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="USP_PlaceOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ODate" Type="smalldatetime" Mode="In" />
+          <Parameter Name="SDate" Type="smalldatetime" Mode="In" />
+          <Parameter Name="PID" Type="char" Mode="In" />
+          <Parameter Name="CID" Type="char" Mode="In" />
+          <Parameter Name="Qty" Type="int" Mode="In" />
+          <Parameter Name="Msg" Type="varchar" Mode="InOut" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MSOPSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="MSOPSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="MSOPSModel.Customer" />
+          <EntitySet Name="Orders" EntityType="MSOPSModel.Order" />
+          <EntitySet Name="Products" EntityType="MSOPSModel.Product" />
+          <EntitySet Name="Regions" EntityType="MSOPSModel.Region" />
+          <EntitySet Name="OrderDetails" EntityType="MSOPSModel.OrderDetail" />
+          <AssociationSet Name="CID_Frk" Association="MSOPSModel.CID_Frk">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="PID_FrK" Association="MSOPSModel.PID_FrK">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ContactPerson" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="WebSiteURL" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Orders" Relationship="MSOPSModel.CID_Frk" FromRole="Customers" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+          <Property Name="ShippingDate" Type="DateTime" Nullable="false" />
+          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="CustomerID" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Customer" Relationship="MSOPSModel.CID_Frk" FromRole="Orders" ToRole="Customers" />
+          <NavigationProperty Name="Product" Relationship="MSOPSModel.PID_FrK" FromRole="Orders" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="LincensesInHand" Type="Int32" Nullable="false" />
+          <Property Name="ReorderLevel" Type="Int16" />
+          <NavigationProperty Name="Orders" Relationship="MSOPSModel.PID_FrK" FromRole="Products" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Name="RegionID" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="RegionDesc" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="orderid" />
+            <PropertyRef Name="OrderDate" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ProductName" />
+            <PropertyRef Name="UnitPrice" />
+            <PropertyRef Name="Quantity" />
+          </Key>
+          <Property Name="orderid" Type="Int64" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+          <Property Name="CustomerID" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Amt" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <Association Name="CID_Frk">
+          <End Role="Customers" Type="MSOPSModel.Customer" Multiplicity="1" />
+          <End Role="Orders" Type="MSOPSModel.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PID_FrK">
+          <End Role="Products" Type="MSOPSModel.Product" Multiplicity="1" />
+          <End Role="Orders" Type="MSOPSModel.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MSOPSModelStoreContainer" CdmEntityContainer="MSOPSEntities">
+          <EntitySetMapping Name="Customers"><EntityTypeMapping TypeName="MSOPSModel.Customer"><MappingFragment StoreEntitySet="Customers">
+            <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+            <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="WebSiteURL" ColumnName="WebSiteURL" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Orders"><EntityTypeMapping TypeName="MSOPSModel.Order"><MappingFragment StoreEntitySet="Orders">
+            <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+            <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+            <ScalarProperty Name="ShippingDate" ColumnName="ShippingDate" />
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+            <ScalarProperty Name="Amount" ColumnName="Amount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Products"><EntityTypeMapping TypeName="MSOPSModel.Product"><MappingFragment StoreEntitySet="Products">
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+            <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+            <ScalarProperty Name="LincensesInHand" ColumnName="LincensesInHand" />
+            <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Regions"><EntityTypeMapping TypeName="MSOPSModel.Region"><MappingFragment StoreEntitySet="Regions">
+            <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+            <ScalarProperty Name="RegionDesc" ColumnName="RegionDesc" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails"><EntityTypeMapping TypeName="MSOPSModel.OrderDetail"><MappingFragment StoreEntitySet="OrderDetails">
+            <ScalarProperty Name="orderid" ColumnName="orderid" />
+            <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+            <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+            <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+            <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+            <ScalarProperty Name="Amt" ColumnName="Amt" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="MSOPS_Model">
+        <EntityTypeShape EntityType="MSOPSModel.Customer" Width="1.5" PointX="0.75" PointY="1.125" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSOPSModel.Order" Width="1.5" PointX="3" PointY="1" Height="2.4140429687499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSOPSModel.Product" Width="1.5" PointX="0.75" PointY="5.25" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSOPSModel.Region" Width="1.5" PointX="2.75" PointY="4.75" Height="1.2636116536458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSOPSModel.OrderDetail" Width="1.5" PointX="4.75" PointY="4.75" Height="2.4140429687499996" IsExpanded="true" />
+        <AssociationConnector Association="MSOPSModel.CID_Frk" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.1676741536458337" />
+          <ConnectorPoint PointX="3" PointY="2.1676741536458337" />
+        </AssociationConnector>
+        <AssociationConnector Association="MSOPSModel.PID_FrK" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.6235563151041656" />
+          <ConnectorPoint PointX="4.40625" PointY="6.6235563151041656" />
+          <ConnectorPoint PointX="4.40625" PointY="3.4140429687499996" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

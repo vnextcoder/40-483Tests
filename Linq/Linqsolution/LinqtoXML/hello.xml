@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Clients>
+  <Client ID="AMEX">
+    <Name>American Express</Name>
+    <Location>USA</Location>
+  </Client>
+  <Client ID="ACL">
+    <Name>Accenture Limited</Name>
+    <Location>India</Location>
+  </Client>
+</Clients>

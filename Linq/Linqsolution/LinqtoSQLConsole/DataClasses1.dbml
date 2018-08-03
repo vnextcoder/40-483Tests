@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MSOPS" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=MSOPS;Integrated Security=True" SettingsObjectName="LinqtoSQLConsole.Properties.Settings" SettingsPropertyName="MSOPSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="" Member="Persons">
+    <Type Name="Person">
+      <Column Member="PersonID" Type="System.String" CanBeNull="false" />
+      <Column Member="PersonName" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customers" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerID" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CompanyName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactPerson" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="WebSiteURL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.USP_PlaceOrder" Method="USP_PlaceOrder">
+    <Parameter Name="ODate" Parameter="oDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="SDate" Parameter="sDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="PID" Parameter="pID" Type="System.String" DbType="Char(15)" />
+    <Parameter Name="CID" Parameter="cID" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="Qty" Parameter="qty" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Msg" Parameter="msg" Type="System.String" DbType="VarChar(100)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.USP_AddCustomer" Method="USP_AddCustomer">
+    <Parameter Name="CusotmerID" Parameter="cusotmerID" Type="System.String" DbType="Char(5)" />
+    <Parameter Name="CompanyName" Parameter="companyName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ContactPerson" Parameter="contactPerson" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="WebSiteURL" Parameter="webSiteURL" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

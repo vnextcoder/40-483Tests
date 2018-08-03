@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Projects>
+  <Project ID="AXA Web App1">
+    <Description>AXA Client Web Application01</Description>
+    <TeamSize>20</TeamSize>
+    <Duration>250</Duration>
+    <Location>
+      <City>Noida</City>
+      <Country>India</Country>
+    </Location>
+  </Project>
+  <Project ID="AXA WCF Svc1">
+    <Description>AXA Client WCF Service-1</Description>
+    <TeamSize>2</TeamSize>
+    <Duration>2000</Duration>
+    <Location>
+      <City>Banglore</City>
+      <Country>INDIA</Country>
+    </Location>
+  </Project>
+  <Project ID="ITT WCF Svc1">
+    <Description>ITT Client WCF Service-1</Description>
+    <TeamSize>1</TeamSize>
+    <Duration>20</Duration>
+    <Location>
+      <City>Chennai</City>
+      <Country>India</Country>
+    </Location>
+  </Project>
+  <Project ID="Tmp Web App1">
+    <Description>TMP Client WCF Service-1</Description>
+    <TeamSize>50</TeamSize>
+    <Duration>500</Duration>
+    <Location>
+      <City>Hyderabad</City>
+      <Country>India</Country>
+    </Location>
+  </Project>
+</Projects>
